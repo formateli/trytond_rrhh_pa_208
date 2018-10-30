@@ -18,10 +18,13 @@ class RRHHPa208TestCase(ModuleTestCase):
         pool = Pool()
         Employee = pool.get('company.employee')
         Configuration = pool.get('rrhh.pa.208.configuration')
+        Hora = pool.get('rrhh.pa.208.hora')
+        Deduccion = pool.get('rrhh.pa.208.deduccion')
 
         company = create_company()
         with set_company(company):
             pass
+
 
 def suite():
     suite = trytond.tests.test_tryton.suite()

@@ -9,5 +9,7 @@ from .employee import *
 def register():
     Pool.register(
         Configuration,
+        Hora,
+        Deduccion,
         Employee,
         module='rrhh_pa_208', type_='model')
