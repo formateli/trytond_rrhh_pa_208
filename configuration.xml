@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!-- This file is part of tryton-rrhh project for Tryton. The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<tryton>
+    <data>
+        <menuitem name="Planilla Panama" id="menu_planilla_panama"
+            sequence="5" parent="rrhh.menu_configuration"/>
+
+        <record model="ir.ui.view" id="rrhh_pa_configuration_view_form">
+            <field name="model">rrhh.pa.208.configuration</field>
+            <field name="type">form</field>
+            <field name="name">configuration_form</field>
+        </record>
+        <record model="ir.action.act_window" id="act_rrhh_pa_configuration_form">
+            <field name="name">Configuracion</field>
+            <field name="res_model">rrhh.pa.208.configuration</field>
+        </record>
+        <record model="ir.action.act_window.view"
+                id="act_rrhh_pa_configuration_view1">
+            <field name="sequence" eval="1"/>
+            <field name="view" ref="rrhh_pa_configuration_view_form"/>
+            <field name="act_window" ref="act_rrhh_pa_configuration_form"/>
+        </record>
+
+        <menuitem parent="menu_planilla_panama"
+            action="act_rrhh_pa_configuration_form"
+            id="menu_rrhh_pa_configuration" sequence="10" icon="tryton-list"/>
+
+
+        <record model="ir.ui.view" id="hora_view_form">
+            <field name="model">rrhh.pa.208.hora</field>
+            <field name="type">form</field>
+            <field name="name">hora_form</field>
+        </record>
+        <record model="ir.ui.view" id="hora_view_tree">
+            <field name="model">rrhh.pa.208.hora</field>
+            <field name="type">tree</field>
+            <field name="name">hora_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_hora_form">
+            <field name="name">Hora</field>
+            <field name="res_model">rrhh.pa.208.hora</field>
+            <field name="search_value"></field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_hora_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="hora_view_tree"/>
+            <field name="act_window" ref="act_hora_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_hora_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="hora_view_form"/>
+            <field name="act_window" ref="act_hora_form"/>
+        </record>
+
+        <menuitem name="Hora" id="menu_hora"
+            sequence="20" 
+            action="act_hora_form" parent="menu_planilla_panama"/>
+
+
+        <record model="ir.ui.view" id="deduccion_view_form">
+            <field name="model">rrhh.pa.208.deduccion</field>
+            <field name="type">form</field>
+            <field name="name">deduccion_form</field>
+        </record>
+        <record model="ir.ui.view" id="deduccion_view_tree">
+            <field name="model">rrhh.pa.208.deduccion</field>
+            <field name="type">tree</field>
+            <field name="name">deduccion_tree</field>
+        </record>
+        <record model="ir.action.act_window" id="act_deduccion_form">
+            <field name="name">Deduccion</field>
+            <field name="res_model">rrhh.pa.208.deduccion</field>
+            <field name="search_value"></field>
+        </record>
+        <record model="ir.action.act_window.view" id="act_deduccion_form_view1">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="deduccion_view_tree"/>
+            <field name="act_window" ref="act_deduccion_form"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_deduccion_form_view2">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="deduccion_view_form"/>
+            <field name="act_window" ref="act_deduccion_form"/>
+        </record>
+
+        <menuitem name="Deduccion" id="menu_deduccion"
+            sequence="30" 
+            action="act_deduccion_form" parent="menu_planilla_panama"/>
+
+    </data>
+</tryton>

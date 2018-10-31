@@ -1,6 +1,6 @@
 #This file is part of tryton-rrhh project. The COPYRIGHT file at the top level of
 #this repository contains the full copyright notices and license terms.
-from trytond.pyson import Eval
+from trytond.pyson import Eval, Equal, Not
 from trytond.pool import Pool
 from trytond.model import (
     ModelSingleton, ModelView, ModelSQL, fields)
@@ -51,10 +51,13 @@ class Hora(ModelSQL, ModelView):
             ('normal', 'Normal'),
             ('sobretiempo', 'Sobretiempo'),
             ('descuento', 'Descuento'),
-        ], 'Estado', required=True)
+        ], 'Tipo', required=True)
     recargo = fields.Numeric('% Recargo',
         digits=(16, Eval('currency_digits', 2)),
-        depends=['currency_digits'])
+        states={
+            'invisible': Not(Equal(Eval('tipo'), 'sobretiempo')),
+        },
+        depends=['currency_digits', 'tipo'])
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
         'get_currency_digits')
     orden = fields.Integer('Orden')

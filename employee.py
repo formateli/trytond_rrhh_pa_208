@@ -45,7 +45,8 @@ class Employee:
     def on_change_with_rata(self, name=None):
         res = Decimal('0.0')
         if self.salario:
-            res = self.salario / self.horas_base
+            exp = Decimal(str(10.0 ** -self.currency_digits))
+            res = (self.salario / self.horas_base).quantize(exp)
         return res
 
     def get_horas_base(self, name=None):

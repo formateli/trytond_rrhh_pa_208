@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- This file is part of tryton-rrhh project for Tryton. The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
+<data>
+    <xpath expr="/form/notebook/page[@id='qualification']" position="after">
+        <page string="Planilla" col="4" id="planilla">
+            <label name="salario"/>
+            <field name="salario"/>
+            <label name="horas_base"/>
+            <field name="horas_base"/>
+            <label name="rata"/>
+            <field name="rata"/>
+        </page>
+    </xpath>
+</data>
+
