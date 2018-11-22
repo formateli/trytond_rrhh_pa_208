@@ -31,7 +31,7 @@ class Configuration(ModelSingleton, ModelSQL, ModelView):
 
     @staticmethod
     def default_horas_base():
-        return Decimal('208')
+        return Decimal('208.0')
 
     @staticmethod
     def default_currency_digits():

@@ -20,8 +20,10 @@ class Employee:
         digits=(16, Eval('currency_digits', 2)),
         depends=['currency_digits']), 'get_horas_base')
     rata = fields.Function(fields.Numeric('Rata',
-        digits=(16, Eval('currency_digits', 2)),
-        depends=['currency_digits']), 'on_change_with_rata')
+        digits=(16, Eval('rata_digits', 4)),
+        depends=['rata_digits']), 'on_change_with_rata')
+    rata_digits = fields.Function(fields.Integer('Rata Digits'),
+        'get_rata_digits')
     currency_digits = fields.Function(fields.Integer('Currency Digits'),
         'get_currency_digits')
 
@@ -38,6 +40,10 @@ class Employee:
             return company.currency.digits
         return 2
 
+    @fields.depends()
+    def get_rata_digits(self, name=None):
+        return 4
+
     def get_currency_digits(self, name=None):
         return self.default_currency_digits()
 
@@ -45,7 +51,7 @@ class Employee:
     def on_change_with_rata(self, name=None):
         res = Decimal('0.0')
         if self.salario:
-            exp = Decimal(str(10.0 ** -self.currency_digits))
+            exp = Decimal(str(10.0 ** -self.rata_digits))
             res = (self.salario / self.horas_base).quantize(exp)
         return res
 
