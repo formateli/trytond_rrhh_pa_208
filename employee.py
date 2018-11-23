@@ -40,6 +40,10 @@ class Employee:
             return company.currency.digits
         return 2
 
+    @staticmethod
+    def default_rata_digits():
+        return 4
+
     @fields.depends()
     def get_rata_digits(self, name=None):
         return 4

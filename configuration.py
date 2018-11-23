@@ -85,10 +85,10 @@ class Deduccion(ModelSQL, ModelView):
         ('fijo', 'Monto Fijo'),
     ], 'Tipo', required=True)
     valor = fields.Numeric('Valor', required=True,
-        digits=(16, Eval('currency_digits', 2)),
-        depends=['currency_digits'])
-    currency_digits = fields.Function(fields.Integer('Currency Digits'),
-        'get_currency_digits')
+        digits=(16, Eval('valor_digits', 4)),
+        depends=['valor_digits'])
+    valor_digits = fields.Function(fields.Integer('Valor Digits'),
+        'get_valor_digits')
     orden = fields.Integer('Orden')
     ley = fields.Boolean('De Ley')
     active = fields.Boolean('Active')
@@ -98,9 +98,8 @@ class Deduccion(ModelSQL, ModelView):
         return True
 
     @staticmethod
-    def default_currency_digits():
-        return _get_currency_digits()
+    def default_valor_digits():
+        return 4
 
-    def get_currency_digits(self, name=None):
-        return _get_currency_digits()
-
+    def get_valor_digits(self, name=None):
+        return 4
