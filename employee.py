@@ -41,6 +41,13 @@ class Employee:
         return 2
 
     @staticmethod
+    def default_horas_base():
+        pool = Pool()
+        Config = pool.get('rrhh.pa.208.configuration')
+        config = Config(1)
+        return config.horas_base
+
+    @staticmethod
     def default_rata_digits():
         return 4
 
@@ -51,7 +58,7 @@ class Employee:
     def get_currency_digits(self, name=None):
         return self.default_currency_digits()
 
-    @fields.depends('salario', 'horas_base')
+    @fields.depends('salario', 'horas_base', 'rata_digits')
     def on_change_with_rata(self, name=None):
         res = Decimal('0.0')
         if self.salario:
@@ -60,7 +67,4 @@ class Employee:
         return res
 
     def get_horas_base(self, name=None):
-        pool = Pool()
-        Config = pool.get('rrhh.pa.208.configuration')
-        config = Config(1)
-        return config.horas_base
+        return self.default_horas_base()
