@@ -6,12 +6,13 @@ this repository contains the full copyright notices and license terms. -->
     <field name="name"/>
     <label name="tipo"/>
     <field name="tipo"/>
-    <label name="description"/>
-    <field name="description" colspan="3"/>
-    <label name="recargo"/>
-    <field name="recargo"/>
     <label name="orden"/>
     <field name="orden"/>
+    <label name="recargo"/>
+    <field name="recargo"/>
     <label name="active"/>
     <field name="active"/>
+    <newline/>
+    <label name="description"/>
+    <field name="description" colspan="3"/>
 </form>
