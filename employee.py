@@ -9,8 +9,7 @@ from decimal import Decimal
 __all__ = ['Employee']
 
 
-class Employee:
-    __metaclass__ = PoolMeta
+class Employee(metaclass=PoolMeta):
     __name__ = 'company.employee'
   
     salario = fields.Numeric('Salario',
