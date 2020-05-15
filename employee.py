@@ -1,5 +1,5 @@
-#This file is part of tryton-rrhh project. The COPYRIGHT file at the top level of
-#this repository contains the full copyright notices and license terms.
+# The COPYRIGHT file at the top level of this repository contains
+# the full copyright notices and license terms.
 from trytond.pool import Pool, PoolMeta
 from trytond.model import fields
 from trytond.transaction import Transaction
@@ -11,7 +11,7 @@ __all__ = ['Employee']
 
 class Employee(metaclass=PoolMeta):
     __name__ = 'company.employee'
-  
+
     salario = fields.Numeric('Salario',
         digits=(16, Eval('currency_digits', 2)),
         depends=['currency_digits'])

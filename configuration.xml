@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!-- This file is part of tryton-rrhh project for Tryton. The COPYRIGHT file at the top level of
-this repository contains the full copyright notices and license terms. -->
+<!-- The COPYRIGHT file at the top level of this repository contains
+the full copyright notices and license terms. -->
 <tryton>
     <data>
         <menuitem name="Planilla Panama" id="menu_planilla_panama"
@@ -54,7 +54,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem name="Hora" id="menu_hora"
-            sequence="20" 
+            sequence="20"
             action="act_hora_form" parent="menu_planilla_panama"/>
 
 
@@ -85,7 +85,7 @@ this repository contains the full copyright notices and license terms. -->
         </record>
 
         <menuitem name="Deduccion" id="menu_deduccion"
-            sequence="30" 
+            sequence="30"
             action="act_deduccion_form" parent="menu_planilla_panama"/>
 
     </data>

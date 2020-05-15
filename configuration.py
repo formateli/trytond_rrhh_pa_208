@@ -1,5 +1,5 @@
-#This file is part of tryton-rrhh project. The COPYRIGHT file at the top level of
-#this repository contains the full copyright notices and license terms.
+# The COPYRIGHT file at the top level of this repository contains
+# the full copyright notices and license terms.
 from trytond.pyson import Eval, Equal, Not
 from trytond.pool import Pool
 from trytond.model import (
